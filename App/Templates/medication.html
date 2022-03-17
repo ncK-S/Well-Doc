@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Well-Doc - Patient Medications{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('logout_facility') }}">Logout</a>
+<a href="{{ url_for('index') }}">Back to Dashboard</a>
+<form name="medication-registration-form" action="{{ url_for('add_medical_record', patient_id=patient_id) }}" method='post'>
+    <label>Add Medication</label>
+    <input name="medication" name="type" required placeholder="Name of Medication">
+    <input name ="dose" type="number" required placeholder="Dose">
+    <input name ="frequency" type="text" required placeholder="Freqency">
+    <input name ="time" type="text" required placeholder="Time/s">
+    <input type="submit" />
+</div>
+<div id="medical-record-list">
+    <p>Medication</p><p>Dose</p><p>Frequency</p><p>Time</p>
+    {% for medication in medications %}
+        <p>{{medication.name}}</p><p>{{meidcation.dose}}</p><p>{{medication.frequency}}</p><p>{{medication.time}}</p><a href="{{url_for('delete_medical_record')}}">Delete</a>
+    {% endfor %}
+</div>
+{% endblock %}

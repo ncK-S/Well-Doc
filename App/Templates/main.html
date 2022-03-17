@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Well-Doc Portal{% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <form action="/caregiver" method="post">
+        <h1 id="welcome">Well-Doc Portal</h1>
+        <p id="register">Register for Free</p>
+        <input name="name" type="text" required placeholder="Name of Facility">
+        <input name ="email-address"  type="email" required placeholder="Email">
+        <input name="password" type="password" required placeholder="Password">
+        <input type="submit" />
+    </form>
+    <form action="/caregiver" method="post">
+        <p id="login">Already Have an Account? Login</p>
+        <input name ="email-address" type="email" required placeholder="Email">
+        <input name="password" type="password" required placeholder="Password">
+        <input type="submit" />
+    </form>
+{% endblock %}

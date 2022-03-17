@@ -1,0 +1,66 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+form {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+form input {
+    grid-column: 2;
+    width: 40%;
+    height: 2em;
+    margin: auto;
+    margin-top: 1em;
+    border-style: none;
+    border: 2px solid #9146FF ;
+    border-radius: 5px;
+}
+
+form input[type=submit] {
+    grid-column: 2;
+    width: 25%;
+    color: white;
+    background-color: #9146FF ;
+}
+
+form h1 {
+    color: #9146FF ;
+}
+
+form p {
+    font-size: 12pt;
+}
+
+#login{
+    grid-column: 2;
+}
+
+#register{
+    grid-column: 2;
+}
+
+#welcome{
+    grid-column: 2;
+}
+
+#vaccine-record-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+#employee-list  p {
+    margin-top: 0;
+}
+
+#employee-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+#employee-list  p {
+    margin-top: 0;
+}

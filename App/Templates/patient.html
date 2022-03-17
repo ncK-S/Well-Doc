@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Well-Doc Patient Portal{% endblock %}
+
+{% block content %}
+    <a href="{{ url_for('logout_caregiver') }}">Logout</a>
+    <form name="patient-registration-form" action="{{ url_for('register_patient') }}" method='post'>
+        <input name="name" type="text" required placeholder="Name">
+        <input name ="facility" type="email" required placeholder="Facility">
+        <input name ="unit" type="text" required placeholder="Unit">
+        <input type="submit" />
+    </div>
+    <div id="patient-portal">
+        <p>Patient Name</p><p>Patient Facility</p><p>Patient Unit</p><p>Update Patient Profile</p>
+        {% for patient in patients %}
+            <p>{{patient.name}}</p>patient.facility<p>{{patient.unit}}</p><a href="{{ url_for('medical_records', patient=patient) }}">Update Patient Medical Records</a>
+        {% endfor %}
+    </div>
+{% endblock %}

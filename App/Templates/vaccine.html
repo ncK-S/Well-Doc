@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Well-Doc - Patient Covid-19 Vaccinations{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('logout_caregiver') }}">Logout</a>
+<a href="{{ url_for('index') }}">Back to Dashboard</a>
+<form name="vaccine-dose-registration-form" action="{{ url_for('add_vaccine_record', patient_id=patient_id) }}" method='post'>
+    <label>Type</label>
+    <input list="vaccine-types" name="type" required>
+    <datalist id="vaccine-types">
+        <option value="Pfizer-BioNTech">
+        <option value="Moderna">
+        <option value="Johnson & Johnson">
+        <option value="Astra-Zeneca">
+    </datalist>
+    <input name ="dose-number" type="number" required placeholder="Dose No.">
+    <input name ="dose-id" type="text" required placeholder="Dose ID">
+    <input type="submit" />
+</div>
+<div id="vaccine-record-list">
+    <p>Vaccine Type</p><p>Dose Number</p><p>Date</p><p>Dose ID</p><p>Delete</p>
+    {% for vaccine_dose in vaccine_doses %}
+        <p>{{vaccine_dose.type}}</p><p>{{vaccine_dose.dose_no}}</p><p>{{vaccine_dose.dose_date}}</p><p>{{vaccine_dose.dose_id}}</p><a href="{{url_for('delete_vaccine_record', patient=patient, vaccine_id=vaccine_dose.id)}}">Delete</a>
+    {% endfor %}
+</div>
+{% endblock %}
